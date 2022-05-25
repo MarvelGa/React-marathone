@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Main Test",
+      "setup": "git clone https://github.com/nrevutska/sprint-17-hoc-test src/tests && npm install",
+      "run": "CI=true npm test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 10
+    }
+  ]
+}

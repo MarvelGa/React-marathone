@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task2</title>
+</head>
+<body>
+<!--Write a function combineArray(arr1, arr2), which takes 2 arrays, and returns a new array
+consisting only of numeric elements of arrays arr1 and arr2.
+Function example:
+combineArray([12, "User01", 22, true, -8], ["Index", 6, null, 15]));  // [12, 22, -8, 6, 15]-->
+
+<script>
+    function combineArray(arr1, arr2) {
+        let arr = arr1.concat(arr2);
+        return arr.filter((elem => typeof elem === 'number'));
+    }
+
+    console.log(combineArray([12, "User01", 22, true, -8], ["Index", 6, null, 15]));
+
+    console.log(combineArray(["User01", "User02", "User03", "User04"], ["Data1", 33, "Data2", 44]));
+
+    console.log(combineArray(['1', '2', '3', '4'], ['first', 'second', 'third']));
+</script>
+</body>
+</html>

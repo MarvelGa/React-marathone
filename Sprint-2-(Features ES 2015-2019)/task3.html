@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--Find the maximum interval between two consecutive numbers. Numbers are entered as arguments-->
+<script>
+    const maxInterv = (...arr) => {
+        return arr.reduce((maxInt, number, index, array) => {
+            let interval = index + 1 <= array.length - 1 ? number - array[index + 1] : maxInt;
+            if (interval < 0) {
+                interval = -interval;
+            }
+            return interval > maxInt ? interval : maxInt;
+        }, 0)
+    }
+
+
+    console.log(maxInterv(3, 5, 2, 7)); //5
+    console.log(maxInterv(3, 5, 2, 7, 11, 0, -2)); //11
+    console.log(maxInterv(3, 5)); //2
+    console.log(maxInterv(3)); //0
+    console.log(maxInterv(3, 5, 2, 8)); //6
+    console.log(maxInterv(3, 5, 2, 37, 11, 0, -2)); //35
+    console.log(maxInterv(8)); //0
+</script>
+</body>
+</html>

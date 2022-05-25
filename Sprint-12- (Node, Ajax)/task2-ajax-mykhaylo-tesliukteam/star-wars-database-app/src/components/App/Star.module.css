@@ -1,0 +1,11 @@
+button{
+    width: 500px;
+}
+
+.top{
+    background-color: blue;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 30px;
+    width: 700px;
+}

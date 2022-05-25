@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    const Checker = require('./Checker.js');
+
+    class Movie {
+        constructor(name, category, startShow) {
+            this._name = name;
+            this._category = category;
+            this._startShow = startShow;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get category() {
+            return this._category;
+        }
+
+        set category(value) {
+            this._category = value;
+        }
+
+        get startShow() {
+            return this._startShow;
+        }
+
+        set startShow(value) {
+            this._startShow = value;
+        }
+
+        watchMovie() {
+            return `I watch the movie ${this.name}!`;
+        }
+
+    }
+
+    let movie1 = new Movie("Titanic", "drama", 1997);
+    let movie2 = new Movie("Troya", "historical", 2004);
+
+    console.log(Checker.classHasObject(Movie, movie1)); //true
+    console.log(Checker.classHasObject(Movie, movie2));//true
+    console.log(Checker.isFieldValue(movie1, "name"));//Titanic
+    console.log(Checker.isFieldValue(movie1, "category"));//drama
+    console.log(Checker.isFieldValue(movie1, "startShow"));//1997
+    console.log(Checker.isFieldValue(movie2, "name"));//Troya
+    console.log(Checker.isFieldValue(movie2, "category"));//historical
+    console.log(Checker.isFieldValue(movie2, "startShow"));//2004
+    console.log(movie1.watchMovie());//I watch the movie Titanic!
+</script>
+</body>
+</html>

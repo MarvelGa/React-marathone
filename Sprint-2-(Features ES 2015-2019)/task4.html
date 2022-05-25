@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--The function takes any number of strings and returns the sum of their lengths.-->
+<script>
+
+    // const sumOfLen = (...string) => string.reduce((sum, el)=> { return sum + el.length}, 0);
+
+    //or
+
+    const sumOfLen = (...string) => string.join('').length;
+
+    console.log(sumOfLen('hello', 'hi'));//7
+    console.log(sumOfLen('hi'));//2
+    console.log(sumOfLen());//0
+    console.log(sumOfLen('hello', 'hi', 'my name', 'is'));//16
+    console.log(sumOfLen('hello', 'hi', 'my name', 'is2'));//17
+    console.log(sumOfLen('hello', 'my name', 'is'));//14
+    console.log(sumOfLen('hello', 'my name'));//12
+</script>
+</body>
+</html>

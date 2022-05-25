@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint4-Task2</title>
+</head>
+<body>
+
+<!--Write an add(x, y) function that takes two arguments x and y. The function should return a Promise that resolves with
+the sum of the two arguments if they are Numbers, or rejects with the message "Error!" otherwise.-->
+
+<script>
+    function add(x, y) {
+        return new Promise(function (resolve, reject) {
+            if (typeof x === 'number' && typeof y === 'number') {
+                let sum = x + y;
+                resolve(`${sum}`);
+            } else {
+                reject('Error!')
+            }
+        });
+    };
+
+    add(2, 2).then(resolve => console.log(resolve));
+    add(2, "a").catch(err => console.log(err));
+
+</script>
+</body>
+</html>

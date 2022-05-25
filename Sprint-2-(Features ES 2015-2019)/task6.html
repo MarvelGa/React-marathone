@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const getLanguages = (...arr) => arr.reduce((a, b) => a.filter(b)).map((st) => st.languages).flat();
+
+
+    let students = [{
+        name: 'Anna',
+        languages: ['English', 'Ukrainian'],
+        age: 21
+    }, {
+        name: 'Bob',
+        languages: ['Polish', 'Spanish'],
+        age: 26
+    }, {
+        name: 'Alice',
+        languages: ['Italian', 'Russian'],
+        age: 18
+    }];
+    console.log(getLanguages(students));
+
+    /*    [ 'English', 'Ukrainian', 'Polish', 'Spanish', 'Italian', 'Russian' ]*/
+
+
+    let students = [{
+        name: 'Anna',
+        languages: ['English', 'Ukrainian'],
+        age: 21
+    }, {
+        name: 'Bob',
+        languages: ['Polish', 'Japanese'],
+        age: 20
+    }, {
+        name: 'Alice',
+        languages: ['Italian', 'Russian'],
+        age: 18
+    }];
+    console.log(getLanguages(students, student => student.age < 21));
+
+
+    /*    [ 'Polish', 'Japanese', 'Italian', 'Russian' ]*/
+
+
+    let students = [{
+        name: 'Anna',
+        languages: ['English', 'Ukrainian'],
+        age: 21
+    }, {
+        name: 'Bob',
+        languages: ['Polish', 'Japanese'],
+        age: 20
+    }, {
+        name: 'Alice',
+        languages: ['Italian', 'Russian'],
+        age: 18
+    }];
+    console.log(getLanguages(students, student => student.name.startsWith('A')));
+
+
+    /*    [ 'English', 'Ukrainian', 'Italian', 'Russian' ]*/
+
+    let students = [{
+        name: 'Anna',
+        languages: ['English', 'Ukrainian'],
+        age: 21
+    }, {
+        name: 'Bob',
+        languages: ['Polish', 'Japanese', 'Greek'],
+        age: 20
+    }, {
+        name: 'Helga',
+        languages: ['JavaScript'],
+        age: 18
+    }, {
+        name: 'Alice',
+        languages: ['Italian', 'Russian'],
+        age: 18
+    }];
+    console.log(getLanguages(students, student => student.name.length > 2));
+    /*    [
+            'English',
+            'Ukrainian',
+            'Polish',
+            'Japanese',
+            'Greek',
+            'JavaScript',
+            'Italian',
+            'Russian'
+        ]*/
+</script>
+</body>
+</html>

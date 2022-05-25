@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint15-task1</title>
+</head>
+<body>
+<script>
+
+    function overloadedFunc(a = [1, 2, 3], b = 2, c) {
+
+        if (arguments.length === 3) {
+            if (Array.isArray(a)) {
+                return a.map(el => el + b);
+            }
+            return a + b;
+        }
+
+        if (Array.isArray(a)) {
+            return a.map(el => el * b);
+        }
+
+        return a * b;
+    }
+
+    console.log(overloadedFunc());//[ 2, 4, 6 ]
+
+    console.log(overloadedFunc([2, 4, 6, 8]));//[ 4, 8, 12, 16 ]
+
+    console.log(overloadedFunc([2, 4, 6], 3));//[ 6, 12, 18 ]
+
+    console.log(overloadedFunc(10));//20
+
+    console.log(overloadedFunc(8, 3));//24
+
+    // console.log(overloadedFunc(undefined, undefined, func.sum)); //[ 3, 4, 5 ]
+    //
+    // console.log(overloadedFunc(3, undefined, func.sum));//5
+    //
+    // console.log(overloadedFunc(10, 5, func.sum));//15
+
+</script>
+</body>
+</html>

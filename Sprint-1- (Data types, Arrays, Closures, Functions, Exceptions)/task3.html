@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task3</title>
+</head>
+<body>
+<!--Implement the longestLogin(loginList) function, which takes an array of user logins loginList  and returns the longest login. If the logins of the same length are the longest in the array, the login element with the largest index is returned. Tip: You can use the reduce() method to solve the task.
+
+Function examples:
+
+longestLogin(["serg22", "tester_2", "Prokopenko", "guest"]);   //  Prokopenko
+
+longestLogin(["user1", "user2", "333", "user4", "aa"]);   //  user4-->
+
+<script>
+    function longestLogin(loginList) {
+        let result = loginList.reduce((longestOne, elem) => {
+            if (elem.length > longestOne.length) {
+                longestOne = elem;
+            } else if (elem.length === longestOne.length) {
+                longestOne = longestOne.localeCompare(elem) === -1 ? elem : longestOne;
+            }
+            return longestOne;
+        });
+        return result;
+    }
+
+    console.log(longestLogin(["maxxx", "NewUser", "admin111", "Administrator"]));
+</script>
+</body>
+</html>

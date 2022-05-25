@@ -1,0 +1,26 @@
+{
+  "name": "task1-node-mykhaylo-tesliukteam",
+  "version": "1.0.0",
+  "description": "Implement an http server (you can use ExpressJS) that initiates asynchronous operations when a GET request is made:\r - Continuous output to the server console of the current UTC date and time at certain intervals.\r - Stopping the console time output after a while and completing the server response with the return to the user a current UTC date and time.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ita-react-marathon-sprint12/task1-node-mykhaylo-tesliukteam.git"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ita-react-marathon-sprint12/task1-node-mykhaylo-tesliukteam/issues"
+  },
+  "homepage": "https://github.com/ita-react-marathon-sprint12/task1-node-mykhaylo-tesliukteam#readme",
+  "dependencies": {
+    "dateformat": "^5.0.3",
+    "express": "^4.17.3",
+    "yargs": "^17.4.1"
+  }
+}

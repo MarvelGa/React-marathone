@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task1</title>
+</head>
+<body>
+<!--Implement the getModifiedArray(array) function,
+which takes an arbitrary array, and returns an
+array with the value of the first element of the
+array equal to “Start”, the last element of the array
+equal to “End” and the rest of elements should be the
+same as in an initial array. The initial array should stay unchanged.-->
+<script>
+    function getModifiedArray(array) {
+        /* first way*/
+        let result = ['Start', 'End'];
+        result.splice(1, 0, ...array.slice(1, -1));
+        return result;
+
+        /*second way*/
+        return  new Array('Start', ...array.slice(1,-1), 'End');
+    }
+
+    console.log(getModifiedArray([12, 6, 22, 0, -8])); // [‘Start’, 6, 22, 0, ‘End’]
+    console.log(getModifiedArray([false, 10, 'mail', true, 20, 30])); // [‘Start’, 6, 22, 0, ‘End’]
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint15-task2</title>
+</head>
+<body>
+<script>
+    const privateSpeed = new WeakMap();
+    const privateWarning = new WeakMap();
+
+    class SpeedLimiter {
+        constructor(speed, warningFunction) {
+            privateSpeed.set(this, speed);
+            privateWarning.set(this, warningFunction);
+            this.maxAllowedSpeed = 200;
+        }
+
+        accelerate(speed) {
+            let currentSpeed = privateSpeed.get(this);
+            privateSpeed.set(this, speed + currentSpeed);
+            console.log(`Current speed: ${privateSpeed.get(this)} km/h`);
+
+            if (privateSpeed.get(this) >= this.maxAllowedSpeed) {
+                privateWarning.get(this)();
+                privateSpeed.set(this, this.maxAllowedSpeed);
+                console.log(`Current speed: ${privateSpeed.get(this)} km/h`);
+            }
+        }
+    }
+
+    const s = new SpeedLimiter(130, () => console.log('You are driving too fast! Your speed is reduced.'));
+    s.accelerate(30);
+    console.log(privateSpeed.get(s));//Current speed: 160 km/h 160
+</script>
+</body>
+</html>

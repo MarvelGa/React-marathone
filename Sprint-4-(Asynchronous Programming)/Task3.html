@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint4-Task3</title>
+</head>
+<body>
+
+<!--Implement the getAge() function to get user age. To find his age you need to call a getUser() async function
+that return a user object in format {role: "somerole", id: 1}. To get the actual user info you need to call
+another function getUserProfile(id), that uses id returned from the previous function and return user info as an object
+
+{name: "Petro", age: 15}. The getAge() must return the age of the user.-->
+
+
+<script>
+    const {getUser, getUserProfile} = require('./Helper.js');
+
+    async function getAge() {
+        const userObject = await getUser();
+        const actualUserInfo = await getUserProfile(userObject.id);
+        return actualUserInfo.age;
+    }
+
+
+    getAge().then(a => console.log(a));
+</script>
+</body>
+</html>

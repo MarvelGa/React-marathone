@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint2-Task2</title>
+</head>
+<body>
+
+<!--The user enters as arguments the number of seconds, minutes, hours, days, weeks, months, years.
+Output how many seconds are in all this.
+All parameters are optional. Consider 30 days in a month-->
+
+<script>
+    let secsOfPeriod = [1, 60, 3600, 86400, 2592000, 31104000];
+    const howMuchSec = (...arr) => arr.reduce((total, number, index, arr) => {
+        return total + (number * secsOfPeriod [index]);
+    }, 0);
+
+    console.log(howMuchSec(12, 3)); // 12 secs and 3 min = 192 secs
+    console.log(howMuchSec(1, 33, 22)); //81181
+    console.log(howMuchSec()); // 0
+    console.log(howMuchSec(12, 3, 3, 3));//270192
+    console.log(howMuchSec(33, 33, 11)); //41613
+</script>
+</body>
+</html>

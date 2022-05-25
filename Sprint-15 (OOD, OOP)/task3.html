@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint15-task3</title>
+</head>
+<body>
+<script>
+    const upperCase = el => el.toUpperCase();
+    const tripleExclaim = el => el + '!!!';
+    const split = el => el.split('_');
+    const join = el => el.join(' ');
+    const copy = el => `${el} `.repeat(2);
+    const createComposition = (...allOperations) => args => allOperations.reduce((text, operation) => operation(text), args);
+    const result = createComposition(upperCase, tripleExclaim, split, join, copy);
+
+    console.log(upperCase("by_ticket_now")); //BY_TICKET_NOW
+    console.log(tripleExclaim("by_ticket_now"));//by_ticket_now!!!
+    console.log(copy("by_ticket_now")); //by_ticket_now by_ticket_now
+    console.log(result("by_ticket_now")); //BY TICKET NOW!!! BY TICKET NOW!!!
+    console.log(result("only_today_big_discounts"));//ONLY TODAY BIG DISCOUNTS!!! ONLY TODAY BIG DISCOUNTS!!!
+    console.log(result("total sale"));//TOTAL SALE!!! TOTAL SALE!!!
+    console.log(result("buy 2 - get 3"));//BUY 2 - GET 3!!! BUY 2 - GET 3
+</script>
+</body>
+</html>

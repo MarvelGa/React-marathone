@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint3-task2</title>
+</head>
+<body>
+<script>
+    function mapCreator(keys, values) {
+        let resultMap = new Map();
+        values.forEach((value, i) => {
+            if (typeof value !== 'string') {
+                resultMap.set(undefined, '');
+            } else {
+                resultMap.set(keys[i], value);
+            }
+        });
+        resultMap.delete(undefined)
+        return resultMap;
+    }
+
+    const map1 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", "Rivne", "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", "Ivano-Frankivsk"]);
+    console.log(map1.get(1));  //Lviv
+
+    const map2 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", "Rivne", "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", "Ivano-Frankivsk"]);
+    console.log(map2.size); //7
+
+    const map3 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", "Rivne", "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", "Ivano-Frankivsk"]);
+    console.log(map3.has(2)); //true
+
+    const map4 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", "Rivne", "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", "Ivano-Frankivsk"]);
+    console.log(map4.has(10)); //false
+
+    const map5 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", "Rivne", "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", "Ivano-Frankivsk"]);
+    console.log(map5.get(7)); //Ivano-Frankivsk
+
+    const map6 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", "Rivne", "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", "Ivano-Frankivsk"]);
+    map6.clear();
+    console.log(map6.size); //0
+
+    const map7 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", 23, "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", true]);
+    console.log(map7.size); //5
+
+    const map8 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", 23, "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", true]);
+    console.log(map8.get(2)); //undefined Kyiv
+
+    const map9 = mapCreator([1, 2, 3, 4, 5, 6, 7], ["Lviv", 23, "Kyiv", "Dnipro", "Kharkiv", "Chernivtsi", true]);
+    console.log(map9.get(7));//undefined
+</script>
+</body>
+</html>

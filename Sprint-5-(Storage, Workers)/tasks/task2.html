@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint5-Task2</title>
+</head>
+<body>
+<script>
+    /*Save object { name: "Tom", age: 25 } to localStorage with key: "user"*/
+
+    let obj = { name: "Tom", age: 25 };
+    localStorage.setItem('user', JSON.stringify(obj));
+
+    console.log(JSON.parse(localStorage.getItem("user")).name === "Tom");
+    console.log(JSON.parse(localStorage.getItem("user")).age === 25);
+    console.log(localStorage.length === 1);
+</script>
+</body>
+</html>

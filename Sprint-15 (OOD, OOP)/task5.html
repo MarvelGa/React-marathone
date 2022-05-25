@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sprint15-task5</title>
+</head>
+<body>
+<script>
+    const pizzaMenu = {
+        SIZE_S: {param: "SIZE_S", price: 60, calorie: 300},
+        SIZE_M: {param: "SIZE_M", price: 90, calorie: 450},
+        SIZE_L: {param: "SIZE_L", price: 110, calorie: 600},
+        KIND_MEAT: {param: "KIND_MEAT", price: 55, calorie: 230},
+        KIND_FISH: {param: "KIND_FISH", price: 70, calorie: 150},
+        KIND_CHEESE: {param: "KIND_CHEESE", price: 50, calorie: 200},
+        KIND_VEGETARIAN: {param: "KIND_VEGETARIAN", price: 35, calorie: 50},
+        INGREDIENT_TOMATOES: {param: "INGREDIENT_TOMATOES", price: 15, calorie: 5},
+        INGREDIENT_PEPPER: {param: "INGREDIENT_PEPPER", price: 18, calorie: 5},
+        INGREDIENT_BACON: {param: "INGREDIENT_BACON", price: 25, calorie: 40},
+        INGREDIENT_OLIVES: {param: "INGREDIENT_OLIVES", price: 20, calorie: 0}
+    };
+
+    class PizzaMaker {
+
+        constructor(size, kind) {
+            this._size = size;
+            this._kind = kind;
+            this.ingredients = [];
+            this.price = 0;
+        }
+
+        getSize() {
+            return this._size.param;
+        }
+
+        getKind() {
+            return this._kind.param
+        }
+
+        calculatePrice() {
+            let totalPriceOfIngredients = this.ingredients.reduce((total, el) => {
+                return total + el.price;
+            }, 0);
+            return this._kind.price + this._size.price + totalPriceOfIngredients;
+        }
+
+        calculateCalories() {
+            let totalCalories = this.ingredients.reduce((total, el) => {
+                return total + el.calorie;
+            }, 0);
+            return this._kind.calorie + this._size.calorie + totalCalories;
+        }
+
+        getIngredients() {
+            return this.ingredients;
+        }
+
+        addIngredient(ingredient) {
+            if (this.ingredients.includes(ingredient)) {
+                console.log(`Such an ingredient already exists!`);
+            } else {
+                this.ingredients.push(ingredient)
+                console.log(`${ingredient.param} has been added`)
+            }
+        }
+
+        deleteIngredient(ingredient) {
+            if (this.ingredients.includes(ingredient)) {
+                let indexOfIngredient = this.ingredients.indexOf(ingredient);
+                this.ingredients.splice(indexOfIngredient, 1);
+                console.log(`${ingredient.param} has been deleted`);
+            }
+        }
+    }
+
+
+    const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    console.log("Size:", pizza.getSize());
+    console.log("Kind:", pizza.getKind());
+    console.log("calculatePrice:", pizza.calculatePrice());
+    console.log("calculateCalories:", pizza.calculateCalories());
+    pizza.addIngredient(pizzaMenu.INGREDIENT_OLIVES);
+    pizza.addIngredient(pizzaMenu.INGREDIENT_BACON);
+    console.log("calculatePrice:", pizza.calculatePrice());
+    console.log("calculateCalories:", pizza.calculateCalories());
+
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // pizza.addIngredient(pizzaMenu.INGREDIENT_TOMATOES); //  INGREDIENT_TOMATOES has been added
+    // pizza.addIngredient(pizzaMenu.INGREDIENT_BACON);//INGREDIENT_BACON has been added
+    // pizza.deleteIngredient(pizzaMenu.INGREDIENT_TOMATOES);//  INGREDIENT_TOMATOES has been deleted
+
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // console.log("Size:", pizza.getSize());//Size: SIZE_M
+    //
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // console.log("Kind:", pizza.getKind());//Kind: KIND_MEAT
+    //
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // console.log("calculatePrice:", pizza.calculatePrice());//calculatePrice: 145
+    //
+    //
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // console.log("calculateCalories:", pizza.calculateCalories());//calculateCalories: 680
+    //
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // console.log("getIngredients:", pizza.getIngredients());//getIngredients: []
+    //
+    //
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // pizza.addIngredient(pizzaMenu.INGREDIENT_TOMATOES); //INGREDIENT_TOMATOES has been added
+    //
+    // const pizza = new PizzaMaker(pizzaMenu.SIZE_M, pizzaMenu.KIND_MEAT);
+    // pizza.addIngredient(pizzaMenu.INGREDIENT_BACON);
+    // pizza.addIngredient(pizzaMenu.INGREDIENT_BACON); //INGREDIENT_BACON has been added Such an ingredient already exists!
+</script>
+</body>
+</html>
